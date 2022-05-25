@@ -5,7 +5,7 @@ function Header(): React.ReactElement {
 
   return (
     <section className="Header">
-      <h1>Social Network</h1>
+      <h1 className="Header__title">Social Network</h1>
     </section>
   );
 }

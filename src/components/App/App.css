@@ -15,8 +15,14 @@ h6 {
 }
 
 .main {
-  width: 100%;
-  background: #e5e5e5;
+  width: calc(100% - 106px);
+  padding: 36px 53px 0;
+  background: #fff;
+}
+
+li {
+  margin-bottom: 15px;
+  list-style: none;
 }
 
 button {
