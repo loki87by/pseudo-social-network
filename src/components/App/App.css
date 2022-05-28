@@ -14,9 +14,30 @@ h6 {
   margin: 0;
 }
 
+h2 {
+  font-family: "Alegreya Sans";
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 40px;
+}
+
+h3 {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+h4 {
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 17px;
+}
+
 .main {
-  width: calc(100% - 106px);
-  padding: 36px 53px 0;
+  width: 100%;
   background: #fff;
 }
 

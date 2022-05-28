@@ -10,7 +10,7 @@ function Users(): React.ReactElement {
 
   return (
     <section className="Users">
-      <h2 className="Users__title">Пользователи</h2>
+      <h2>Пользователи</h2>
       <ul className="Users__list">
         {usersState.map((user, index) => (
           <li key={index}>

@@ -1,15 +1,9 @@
 .Users {
-  width: 100%;
+  width: calc(100% - 106px);
+  padding: 36px 53px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.Users__title {
-  font-family: "Alegreya Sans SC";
-  font-weight: 500;
-  font-size: 35px;
-  line-height: 40px;
 }
 
 .Users__list {

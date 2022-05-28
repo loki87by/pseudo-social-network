@@ -1,51 +1,71 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { addUser } from "../../redux/usersReducer";
-import { UserData } from "../../utils/types";
-import { getUsers } from '../../utils/Api'
+import { addPost } from "../../redux/postsReducer";
+import { UserData, Message } from "../../utils/types";
+import { getUsers, getPosts } from '../../utils/Api'
 import Header from "../Header/Header";
 import Users from "../Users/Users";
-import User from "../User/User";
+import Main from "../Main/Main";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+/* import User from "../User/User";
 import Posts from "../Posts/Posts";
-import Post from "../Post/Post";
+import Post from "../Post/Post"; */
 import "./App.css";
 
 function App(): React.ReactElement {
   const dispatch = useDispatch<AppDispatch>();
+  const [dataLoaded, setDataLoaded] = React.useState(false)
+  const [dataLoading, setDataLoading] = React.useState(false)
 
   React.useEffect(() => {
-    getUsers().then((res) => {
-      (res as [UserData]).forEach((user) => {
+    setDataLoading(true)
+    Promise.all([
+      getUsers(),
+      getPosts()
+    ]).then(([users, posts]) => {
+    if (users) {
+      (users as [UserData]).forEach((user) => {
         dispatch(addUser({ user }));
       })
-    })
-    
+    }
+    if (posts) {
+      (posts as [Message]).forEach((post, index) => {
+      dispatch(addPost({ post }));
+      if (index === (posts as [Message]).length - 1) {
+        setDataLoaded(true)
+        setDataLoading(false)
+      }
+      })
+    }
+  })
   }, [dispatch])
+
   React.useEffect(() => {
-    if(window.location.pathname === "/") {
+    if((!dataLoaded || dataLoading) && window.location.pathname !== "/users") {
       window.location.replace('users')
     }
-  }, [])
+  }, [dataLoaded, dataLoading])
 
   return (
     <>
       <Header />
       <main className="main">
         <Switch>
-          <Route path="/users">
+          <Route exact path="/users">
             <Users />
           </Route>
-          <Route path="/user">
-            <User />
-            </Route>
-          <Route path="/posts/">
-            <Posts />
-            </Route>
-          <Route path="/post/">
-            <Post />
-            </Route>
+          <ProtectedRoute
+                exact path="/"
+                component={Main}
+                dataLoaded={dataLoaded}
+                dataLoading={dataLoading}
+                />
+              <Route>
+                {!dataLoaded || dataLoading ? <Redirect to="/users" /> : <Main />}
+              </Route>
         </Switch>
       </main>
     </>
