@@ -22,7 +22,7 @@ function Main(props: MainProps): React.ReactElement {
             <Posts />
             </Route>
           <Route path="/post/">
-            <Post />
+            <Post setPopupOpened={props.setPopupOpened} setPostId={props.setPostId}/>
             </Route>
         </Switch>
     </div>
