@@ -41,6 +41,13 @@ line-height: 17px;
   background: #fff;
 }
 
+.post-preview {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 li {
   margin-bottom: 15px;
   list-style: none;

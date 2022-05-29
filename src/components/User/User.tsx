@@ -1,11 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { UserPlaces } from "../../utils/types";
-/* import { UserProps } from "../../utils/types"; */
 import "./User.css";
 
-function User(/* props: UserProps */): React.ReactElement {
+function User(): React.ReactElement {
   const store = useSelector((state: RootState) => state);
   const usersState = store.users;
   const postsState = store.posts;
@@ -51,17 +51,20 @@ function User(/* props: UserProps */): React.ReactElement {
           {postsPreview.map((post, index) => (
             <div className="User__data-post" key={index}>
               <h2
-                className="User__data-post-title User__data-post-preview"
+                className="User__data-post-title post-preview"
                 title={`${post.title}`}
               >
                 {post.title}
               </h2>
-              <h4 className="User__data-post-preview" title={`${post.body}`}>
+              <h4 className="post-preview" title={`${post.body}`}>
                 {post.body}
               </h4>
             </div>
           ))}
         </div>
+        <Link to={`/posts/${id}`} className="User__data-posts-button">
+          Посмотреть все
+        </Link>{" "}
       </article>
     </section>
   );

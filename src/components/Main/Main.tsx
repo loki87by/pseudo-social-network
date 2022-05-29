@@ -3,9 +3,14 @@ import { Route, Switch } from "react-router-dom";
 import User from "../User/User";
 import Posts from "../Posts/Posts";
 import Post from "../Post/Post";
+import { MainProps } from "../../utils/types";
 import './Main.css'
 
-function Main(): React.ReactElement {
+function Main(props: MainProps): React.ReactElement {
+
+  React.useEffect(() => {
+  props.setUsersPage(false)
+}, [props])
 
   return (
     <div className="content">

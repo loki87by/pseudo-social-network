@@ -2,11 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { UsersProps } from "../../utils/types";
 import "./Users.css";
 
-function Users(): React.ReactElement {
+function Users(props: UsersProps): React.ReactElement {
   const store = useSelector((state: RootState) => state);
   const usersState = store.users;
+  React.useEffect(() => {
+  props.setUsersPage(true)
+}, [props])
 
   return (
     <section className="Users">

@@ -6,19 +6,17 @@ import { addUser } from "../../redux/usersReducer";
 import { addPost } from "../../redux/postsReducer";
 import { UserData, Message } from "../../utils/types";
 import { getUsers, getPosts } from '../../utils/Api'
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import Header from "../Header/Header";
 import Users from "../Users/Users";
 import Main from "../Main/Main";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-/* import User from "../User/User";
-import Posts from "../Posts/Posts";
-import Post from "../Post/Post"; */
 import "./App.css";
 
 function App(): React.ReactElement {
   const dispatch = useDispatch<AppDispatch>();
   const [dataLoaded, setDataLoaded] = React.useState(false)
   const [dataLoading, setDataLoading] = React.useState(false)
+  const [isUsersPage, setUsersPage] = React.useState(true)
 
   React.useEffect(() => {
     setDataLoading(true)
@@ -51,20 +49,21 @@ function App(): React.ReactElement {
 
   return (
     <>
-      <Header />
+      <Header isUsersPage={isUsersPage}/>
       <main className="main">
         <Switch>
           <Route exact path="/users">
-            <Users />
+            <Users setUsersPage={setUsersPage}/>
           </Route>
           <ProtectedRoute
                 exact path="/"
                 component={Main}
                 dataLoaded={dataLoaded}
                 dataLoading={dataLoading}
+                setUsersPage={setUsersPage}
                 />
               <Route>
-                {!dataLoaded || dataLoading ? <Redirect to="/users" /> : <Main />}
+                {!dataLoaded || dataLoading ? <Redirect to="/users" /> : <Main  setUsersPage={setUsersPage}/>}
               </Route>
         </Switch>
       </main>
