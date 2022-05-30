@@ -66,7 +66,12 @@ export function getComments<T>(): Promise<T | unknown> {
     });
 }
 
-export function saveComments<T>(postId: number, name: string, email: string, body: string): Promise<T | unknown> {
+export function saveComments<T>(
+  postId: number,
+  name: string,
+  email: string,
+  body: string
+): Promise<T | unknown> {
   const uri = `${BASE_URL}/comments`;
   return fetch(uri, {
     method: "POST",
@@ -74,10 +79,10 @@ export function saveComments<T>(postId: number, name: string, email: string, bod
       postId,
       name,
       email,
-      body
+      body,
     }),
     headers: {
-      'Content-type': 'application/json; charset=UTF-8',
+      "Content-type": "application/json; charset=UTF-8",
     },
   })
     .then((res) => {

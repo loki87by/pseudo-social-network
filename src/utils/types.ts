@@ -5,15 +5,15 @@ export interface StringsObject {
 }
 
 export interface Message {
-  [key: string]: string|number;
+  [key: string]: string | number;
 }
 
 export interface Comment {
   postId: number;
   name: string;
   email: string;
-  body: string; 
-  id: number
+  body: string;
+  id: number;
 }
 
 export interface UserPlaces {
@@ -30,7 +30,7 @@ export interface InputProps {
   name: string;
   text: string;
   setData: Dispatch<SetStateAction<string>>;
-  textArea?: boolean
+  textArea?: boolean;
 }
 
 export interface PostProps {

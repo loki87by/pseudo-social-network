@@ -30,7 +30,10 @@ function Posts(): React.ReactElement {
         </h3>
         <div style={{ display: "flex", alignItems: "center" }}>
           <button
-            className="Posts__columns-setter-button"
+            disabled={columnsCounter === 1}
+            className={`Posts__columns-setter-button ${
+              columnsCounter === 1 && "Posts__columns-setter-button_inactive"
+            }`}
             style={{ paddingTop: "0" }}
             onClick={() => {
               columnsCounterHandler("remove");
@@ -42,7 +45,10 @@ function Posts(): React.ReactElement {
             &nbsp;{columnsCounter}&nbsp;
           </h3>
           <button
-            className="Posts__columns-setter-button"
+            disabled={columnsCounter === 5}
+            className={`Posts__columns-setter-button ${
+              columnsCounter === 5 && "Posts__columns-setter-button_inactive"
+            }`}
             onClick={() => {
               columnsCounterHandler("add");
             }}
@@ -61,14 +67,14 @@ function Posts(): React.ReactElement {
       >
         {posts.map((post, index) => (
           <div className="Post" key={index}>
-            <div className="Post__text-container">
+            <Link to={`/post/${post.id}`} className="Post__text-container">
               <h2 className="Post-title post-preview" title={`${post.title}`}>
                 {post.title}
               </h2>
               <h4 className="post-preview" title={`${post.body}`}>
                 {post.body}
               </h4>
-            </div>
+            </Link>
             <Link to={`/post/${post.id}`} className="Post__open-button">
               <img alt="Смотреть полностью" src={open} />
             </Link>

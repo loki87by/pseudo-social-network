@@ -1,8 +1,15 @@
 .Users {
   width: calc(100% - 106px);
   padding: 36px 53px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 
@@ -18,6 +25,8 @@
   line-height: 21px;
   color: #0000ee;
   text-decoration: none;
+  -webkit-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
 

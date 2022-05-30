@@ -19,7 +19,7 @@
 .Header__button {
   position: absolute;
   top: 30px;
-  right: 10px;
+  left: 10px;
   border: none;
   background: transparent;
   color: #fff;
@@ -27,5 +27,5 @@
 
 .Header__button:hover {
   font-weight: 700;
-  color: #00f;
+  color: #ff4700;
 }

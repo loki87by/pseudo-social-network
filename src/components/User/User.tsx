@@ -27,23 +27,23 @@ function User(): React.ReactElement {
             <h3>{user?.name}</h3>
           </div>
           <div>
-            <h3>{user?.email}</h3>
+            <a href={`mailto: ${user?.email}`}>{user?.email}</a>
           </div>
           <div>
-            <h3>{user?.phone}</h3>
+            <a href={`tel: ${user?.phone}`}>{user?.phone}</a>
           </div>
           <div>
             <h3>{user?.website}</h3>
           </div>
         </div>
         <div></div>
-      </article>
-      <article className="User__data-company">
+        <div></div>
         <div className="User__data-company-name">
-          <h2>Место работы:</h2>
+          <h3>Место работы:</h3>
           <h3>{(user?.company as UserPlaces).name}</h3>
+          <h3>{(user?.company as UserPlaces).bs}</h3>
         </div>
-        <h3>{(user?.company as UserPlaces).bs}</h3>
+        <div></div>
       </article>
       <article className="User__data-posts">
         <h2>Посты:</h2>

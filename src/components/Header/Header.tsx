@@ -7,13 +7,19 @@ function Header(props: HeaderProps): React.ReactElement {
   const history = useHistory();
 
   function back() {
-    history.goBack()
+    history.goBack();
   }
 
   return (
     <section className="Header">
       <h1 className="Header__title">Social Network</h1>
-      {!props.isUsersPage ? <button className="Header__button" onClick={back}>&lt; &nbsp;Назад</button> : ''}
+      {!props.isUsersPage ? (
+        <button className="Header__button" onClick={back}>
+          &lt; &nbsp;Назад
+        </button>
+      ) : (
+        ""
+      )}
     </section>
   );
 }

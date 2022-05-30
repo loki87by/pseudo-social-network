@@ -7,7 +7,7 @@ export const store = configureStore({
   reducer: {
     users: usersReducer,
     posts: postsReducer,
-    comments: commentsReducer
+    comments: commentsReducer,
   },
 });
 

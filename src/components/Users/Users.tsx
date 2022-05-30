@@ -9,8 +9,8 @@ function Users(props: UsersProps): React.ReactElement {
   const store = useSelector((state: RootState) => state);
   const usersState = store.users;
   React.useEffect(() => {
-  props.setUsersPage(true)
-}, [props])
+    props.setUsersPage(true);
+  }, [props]);
 
   return (
     <section className="Users">

@@ -13,8 +13,7 @@ const postsSlice = createSlice({
         post: Message;
       }>
     ) => {
-      if (
-        !state.find(post => post.id === action.payload.post.id)) {
+      if (!state.find((post) => post.id === action.payload.post.id)) {
         state.push(action.payload.post);
       }
     },

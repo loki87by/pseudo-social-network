@@ -30,11 +30,11 @@ h3 {
 }
 
 h4 {
-  font-family: 'Open Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 17px;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
 }
 
 .main {
@@ -46,6 +46,7 @@ line-height: 17px;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 
@@ -70,22 +71,27 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: opacity .2s, visibility 0s linear .3s;
-  -o-transition: opacity .2s, visibility 0s linear .3s;
-  transition: opacity .2s, visibility 0s linear .3s;
+  -webkit-transition: opacity 0.2s, visibility 0s linear 0.3s;
+  -o-transition: opacity 0.2s, visibility 0s linear 0.3s;
+  transition: opacity 0.2s, visibility 0s linear 0.3s;
 }
 
 .popup_opened {
   opacity: 1;
   visibility: visible;
-  -webkit-transition-delay: .2s;
-    -o-transition-delay: .2s;
-      transition-delay: .2s;
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .popup__close {
@@ -96,11 +102,11 @@ button {
   right: -34px;
   top: -34px;
   -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
   cursor: pointer;
   border: 0;
-  background-image: url('../../assets/plus.svg');
+  background-image: url("../../assets/plus.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -116,9 +122,9 @@ button {
   width: 430px;
   height: 420px;
   z-index: 2;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
 
@@ -135,7 +141,11 @@ button {
 }
 
 .popup__submit {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   margin: 10px auto 20px;
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

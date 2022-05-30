@@ -14,36 +14,36 @@ function Post(props: PostProps): React.ReactElement {
   const comments = commentsState.filter((comment) => comment.postId === id);
 
   function openPopup() {
-    props.setPopupOpened(true)
-    if(post) {
-    props.setPostId(post.id as number)
+    props.setPopupOpened(true);
+    if (post) {
+      props.setPostId(post.id as number);
     }
   }
 
-  if(post) {
-  return (
-    <section className="Post__full">
-      <article className="Post__text-container Post__text-container_full">
-    <h2>{post.title}</h2>
-    <h3>{post.body}</h3>
-    </article>
-    <h2 style={{margin: '15px'}}>Комментарии:</h2>
-      <article className="Post__comments-container">
-    {comments.map((comment, index) => 
-      <div key={index} className="Post__comment">
-        <div className="Post__comment-author">
-        <h2 className="Post__comment-author-name">{comment.name}</h2>
-        <h3>Автор:&nbsp;{comment.email}</h3>
-        </div>
-        <h3>{comment.body}</h3>
-      </div>
-    )}
-    </article>
-    <button className="Post__comment-button" onClick={openPopup}>Комментировать</button>
-    </section>
-  );
+  if (post) {
+    return (
+      <section className="Post__full">
+        <article className="Post__text-container Post__text-container_full">
+          <h2>{post.title}</h2>
+          <h3>{post.body}</h3>
+        </article>
+        <h2 style={{ margin: "15px" }}>Комментарии:</h2>
+        <article className="Post__comments-container">
+          {comments.map((comment, index) => (
+            <div key={index} className="Post__comment">
+              <h3>Автор:&nbsp;{comment.email}</h3>
+              <h2 className="Post__comment-name">{comment.name}</h2>
+              <h3>{comment.body}</h3>
+            </div>
+          ))}
+        </article>
+        <button className="Post__comment-button" onClick={openPopup}>
+          Комментировать
+        </button>
+      </section>
+    );
   } else {
-    return <></>
+    return <></>;
   }
 }
 
