@@ -13,7 +13,7 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[contenthash].js",
-    publicPath: "https://loki87by.github.io/contact-list/",
+    publicPath: "https://loki87by.github.io/pseudo-social-network/",
     library: "MyApp",
     libraryTarget: "umd",
     umdNamedDefine: true,
